@@ -21,6 +21,6 @@ class $modify(MyPauseLayer, PauseLayer) {
 		const auto gm = GJAccountManager::sharedState();
 		int accountID = gm->m_accountID;
 		const auto profileLayer = ProfilePage::create(accountID, true);
-		CCDirector::sharedDirector()->getRunningScene()->addChild(profileLayer, 100);
+		profileLayer->show();
 	}
 };
