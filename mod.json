@@ -14,5 +14,11 @@
 	"links": {
 		"source": "https://github.com/FractureFX/QuickProfile"
 	},
-	"tags": ["offline", "interface", "enhancement"]
+	"tags": ["offline", "interface", "enhancement"],
+	"dependencies": {
+		"geode.node-ids": {
+			"importance": "required",
+			"version": ">=1.20.1"
+		}
+	}
 }
