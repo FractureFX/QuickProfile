@@ -8,7 +8,7 @@
 	},
 	"id": "fracturefx.quickprofile",
 	"name": "QuickProfile",
-	"version": "v1.0.3",
+	"version": "v1.1.0",
 	"developer": "FractureFX",
 	"description": "Quickly view your profile in the pause menu!",
 	"links": {
@@ -19,6 +19,15 @@
 		"geode.node-ids": {
 			"importance": "required",
 			"version": ">=1.20.1"
+		}
+	},
+	"settings": {
+		"position": {
+			"type": "string",
+			"default": "Left",
+			"name": "Button Position",
+			"one-of": ["Left", "Right"],
+			"description": "What side of the pause menu should the profile button be on?"
 		}
 	}
 }
