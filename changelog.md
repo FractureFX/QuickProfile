@@ -11,3 +11,6 @@
 - New mod logo
 - Updated changelog format
 - New mod settings allows you to change position of button
+
+# v1.1.1
+- Small tweaks to prevent potential crashes

@@ -10,6 +10,12 @@ class $modify(MyPauseLayer, PauseLayer) {
 		auto rightMenu = this->getChildByID("right-button-menu");
 		auto settingPos = Mod::get()->getSettingValue<std::string>("position");
 		auto targetMenu = (settingPos == "Left") ? leftMenu : rightMenu;
+
+		if (!targetMenu) {
+			targetMenu = leftMenu;
+			return;
+		}
+
 		auto spr = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
 		spr->setScale(0.6f);
 		auto btn = CCMenuItemSpriteExtra::create(
