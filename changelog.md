@@ -14,3 +14,10 @@
 
 # v1.1.1
 - Small tweaks to prevent potential crashes
+
+# v1.1.2
+- Implements a system that prevents player from entering another level when already in one
+
+# v1.1.3
+- Fixed a bug that makes the game crash (For 2.2074)
+- New logo (again)
