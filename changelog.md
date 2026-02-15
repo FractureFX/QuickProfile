@@ -15,6 +15,7 @@
 # v1.1.1
 - Small tweaks to prevent potential crashes
 
-# v1.1.3
-- Fixed a bug that makes the game crash (For 2.2074)
+# v1.1.2
+- Fixed a bug that makes the game crash 
 - New logo (again)
+- 2.2081 support

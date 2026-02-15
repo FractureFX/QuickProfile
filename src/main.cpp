@@ -37,31 +37,27 @@ class $modify(MyPauseLayer, PauseLayer) {
 };
 
 class $modify(LevelInfoLayer) {
-
     void onPlay(CCObject* sender) {
         if (PlayLayer::get()) {
             FLAlertLayer::create(
-                "Warning!",
+                "Warning",
                 "You can't play a level when you are already in one!",
                 "OK"
             )->show();
-            return; // stop here
+            return;
         }
-
-        // not inside a level → run normal behavior
         LevelInfoLayer::onPlay(sender);
     }
 
     void tryCloneLevel(CCObject* sender) {
         if (PlayLayer::get()) {
             FLAlertLayer::create(
-                "Warning!",
+                "Warning",
                 "You can't clone a level when you are already in one!",
                 "OK"
             )->show();
             return;
         }
-
         LevelInfoLayer::tryCloneLevel(sender);
     }
 };
