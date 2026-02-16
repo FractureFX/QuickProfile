@@ -1,6 +1,7 @@
 #include <Geode/modify/PauseLayer.hpp>
 #include <Geode/modify/ProfilePage.hpp>
 #include <Geode/modify/LevelInfoLayer.hpp>
+#include <Geode/modify/CCLayer.hpp>
 #include <Geode/modify/PlayLayer.hpp>
 
 using namespace geode::prelude;
@@ -31,8 +32,9 @@ class $modify(MyPauseLayer, PauseLayer) {
 	void onProfileButton(CCObject* sender) {
 		const auto gm = GJAccountManager::sharedState();
 		int accountID = gm->m_accountID;
-		const auto profileLayer = ProfilePage::create(accountID, true);
+		auto profileLayer = ProfilePage::create(accountID, true);
 		profileLayer->show();
+		profileLayer->setZOrder(999);
 	}
 };
 
@@ -60,4 +62,47 @@ class $modify(LevelInfoLayer) {
         }
         LevelInfoLayer::tryCloneLevel(sender);
     }
+};
+
+// CREDITS GO TO DANKMEME FOR THIS PART OF THE CODE
+class $modify(FixedPlayLayer, PlayLayer) {
+	bool isCurrentPlayLayer(){
+		auto playLayer = cocos2d::CCScene::get()->getChildByType<PlayLayer>(0);
+		return playLayer == this;
+	}
+	bool isPaused(bool checkCurrent){
+		if(checkCurrent && !isCurrentPlayLayer()) return false;
+
+		for(CCNode* child : CCArrayExt<CCNode*>(this->getParent()->getChildren())) {
+			if(typeinfo_cast<PauseLayer*>(child)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	void onEnterH(){
+		auto weRunningScene = this->getParent() == CCScene::get();
+
+		if(weRunningScene){
+			CCLayer::onEnter();
+			return;
+		}
+
+		Loader::get()->queueInMainThread([self = Ref(this)] {
+		        if (!self->isPaused(false)) {
+		            self->CCLayer::onEnter();
+		        }
+		    });
+	}
+};
+class $modify(MyCCLayer, CCLayer){
+	void onEnter(){
+		if(reinterpret_cast<void*>(PlayLayer::get()) == reinterpret_cast<void*>(this)){
+				auto pl = reinterpret_cast<FixedPlayLayer*>(static_cast<CCLayer*>(this));
+				pl->onEnterH();
+		} else {
+			CCLayer::onEnter();
+		}
+	}
 };

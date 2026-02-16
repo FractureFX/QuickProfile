@@ -19,3 +19,6 @@
 - Fixed a bug that makes the game crash 
 - New logo (again)
 - 2.2081 support
+
+# v1.2.1
+- Fixed yet another bug
