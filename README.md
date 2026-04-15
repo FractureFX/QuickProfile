@@ -1,3 +1,7 @@
+![Mod Version](https://api.geode-sdk.org/v1/mods/fracturefx.quickprofile/status_badge?stat=version)
+![Downloads](https://api.geode-sdk.org/v1/mods/fracturefx.quickprofile/status_badge?stat=downloads)
+![GD Version](https://api.geode-sdk.org/v1/mods/fracturefx.quickprofile/status_badge?stat=gd_version)
+![Geode Version](https://api.geode-sdk.org/v1/mods/fracturefx.quickprofile/status_badge?stat=geode_version)
 # QuickProfile
 This mod adds a button to the pause menu that shows your profile when clicked, which allows for quick profile viewing without having to leave the level!
 

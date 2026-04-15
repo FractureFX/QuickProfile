@@ -22,3 +22,6 @@
 
 # v1.2.1
 - Fixed yet another bug
+
+# v1.2.2
+- README.md badges
