@@ -25,3 +25,6 @@
 
 # v1.2.2
 - README.md badges
+
+# v1.2.3
+- 2.2091 support

@@ -9,8 +9,9 @@ using namespace geode::prelude;
 class $modify(MyPauseLayer, PauseLayer) {
 	void customSetup() {
 		PauseLayer::customSetup();
-		auto leftMenu = this->getChildByID("left-button-menu");
-		auto rightMenu = this->getChildByID("right-button-menu");
+		auto mainLayer = this->getChildByID("main-layer");
+		auto leftMenu = mainLayer->getChildByID("left-button-menu");
+		auto rightMenu = mainLayer->getChildByID("right-button-menu");
 		auto settingPos = Mod::get()->getSettingValue<std::string>("position");
 		auto targetMenu = (settingPos == "Left") ? leftMenu : rightMenu;
 
@@ -20,7 +21,7 @@ class $modify(MyPauseLayer, PauseLayer) {
 		}
 
 		auto spr = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
-		spr->setScale(0.6f);
+		spr->setScale(0.5f);
 		auto btn = CCMenuItemSpriteExtra::create(
 			spr, this, menu_selector(MyPauseLayer::onProfileButton)
 		);
